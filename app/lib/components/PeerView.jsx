@@ -338,7 +338,8 @@ export default class PeerView extends React.Component
 			}
 
 			const detection =
-				await faceapi.detectSingleFace(videoElem, tinyFaceDetectorOptions);
+				await faceapi.detectSingleFace(videoElem, tinyFaceDetectorOptions)
+					.withFaceLandmarks()
 
 			if (detection)
 			{
@@ -348,11 +349,11 @@ export default class PeerView extends React.Component
 				canvas.width = width;
 				canvas.height = height;
 
-				// const resizedDetection = detection.forSize(width, height);
+				//const resizedDetection = detection.forSize(width, height);
 				const resizedDetections =
 					faceapi.resizeResults(detection, { width, height });
 
-				faceapi.draw.drawDetections(canvas, resizedDetections);
+				faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
 			}
 			else
 			{
