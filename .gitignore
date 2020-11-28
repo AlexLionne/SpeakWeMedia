@@ -1,4 +1,5 @@
 node_modules/
 /server/mediasoup_valgrind_*
-
+server/public
 /.vscode/
+.idea/*
