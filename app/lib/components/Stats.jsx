@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { Appear } from './transitions';
 import { withRoomContext } from '../RoomContext';
 import * as stateActions from '../redux/stateActions';
+import {Choose, If} from "babel-plugin-jsx-control-statements";
 
 class Stats extends React.Component
 {
@@ -40,7 +41,7 @@ class Stats extends React.Component
 		const {
 			peerId,
 			peerDisplayName,
-			isMe,
+			isMe = true,
 			onClose
 		} = this.props;
 
@@ -68,19 +69,10 @@ class Stats extends React.Component
 				<div className={classnames('content', { visible: peerId })}>
 					<div className='header'>
 						<div className='info'>
-							<div
-								className='close-icon'
-								onClick={onClose}
-							/>
-
 							<Choose>
 								<When condition={isMe}>
 									<h1>Your Stats</h1>
 								</When>
-
-								<Otherwise>
-									<h1>Stats of {peerDisplayName}</h1>
-								</Otherwise>
 							</Choose>
 						</div>
 
