@@ -28,46 +28,7 @@ class Me extends React.Component {
             onSetStatsPeerId
         } = this.props;
 
-        let micState;
-
-        if (!me.canSendMic)
-            micState = 'unsupported';
-        else if (!audioProducer)
-            micState = 'unsupported';
-        else if (!audioProducer.paused)
-            micState = 'on';
-        else
-            micState = 'off';
-
-        let webcamState;
-
-        if (!me.canSendWebcam)
-            webcamState = 'unsupported';
-        else if (videoProducer && videoProducer.type !== 'share')
-            webcamState = 'on';
-        else
-            webcamState = 'off';
-
-        let changeWebcamState;
-
-        if (Boolean(videoProducer) && videoProducer.type !== 'share' && me.canChangeWebcam)
-            changeWebcamState = 'on';
-        else
-            changeWebcamState = 'unsupported';
-
-        let shareState;
-
-        if (Boolean(videoProducer) && videoProducer.type === 'share')
-            shareState = 'on';
-        else
-            shareState = 'off';
-
         const videoVisible = Boolean(videoProducer) && !videoProducer.paused;
-
-        let tip;
-
-        if (!me.displayNameSet)
-            tip = 'Click on your name to change it';
 
         return (
             <PeerView
