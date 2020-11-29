@@ -36,6 +36,7 @@ class Room extends React.Component {
                         <p className={classnames('text', room.state)}>{room.state}</p>
                     </div>
 
+                    
                     <div className='room-link-wrapper'>
                         <div className='room-link'>
                             <a
