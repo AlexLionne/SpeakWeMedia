@@ -47,6 +47,7 @@ class Room extends React.Component {
     }
 }
 
+
 Room.propTypes =
     {
         roomClient: PropTypes.any.isRequired,
