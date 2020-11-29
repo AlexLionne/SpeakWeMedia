@@ -28,8 +28,6 @@ class Room extends React.Component {
                         <div className={classnames('icon', room.state)}/>
                         <p className={classnames('text', room.state)}>{room.state}</p>
                     </div>
-
-                    <Peers/>
                     <Me/>
                     <Stats/>
                     <If condition={window.NETWORK_THROTTLE_SECRET}>
