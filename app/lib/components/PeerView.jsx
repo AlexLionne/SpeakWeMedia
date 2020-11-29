@@ -340,6 +340,7 @@ export default class PeerView extends React.Component
 			const detection =
 				await faceapi.detectSingleFace(videoElem, tinyFaceDetectorOptions)
 					.withFaceLandmarks()
+			//const landmarks = await faceapi.detectFaceLandmarks(videoElem)
 
 			if (detection)
 			{
@@ -354,6 +355,10 @@ export default class PeerView extends React.Component
 					faceapi.resizeResults(detection, { width, height });
 
 				faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+				//const leftEye = landmarks.getLeftEye();
+				//const rightEye = landmarks.getRightEye();
+
+				//console.log(leftEye, rightEye)
 			}
 			else
 			{

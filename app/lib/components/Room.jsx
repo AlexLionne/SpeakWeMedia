@@ -52,16 +52,12 @@ Room.propTypes =
         roomClient: PropTypes.any.isRequired,
         room: appPropTypes.Room.isRequired,
         me: appPropTypes.Me.isRequired,
-        amActiveSpeaker: PropTypes.bool.isRequired,
-        onRoomLinkCopy: PropTypes.func.isRequired
     };
 
 const mapStateToProps = (state) => {
     return {
         room: state.room,
-        me: state.me,
-        amActiveSpeaker: state.me.id === state.room.activeSpeakerId
-    };
+        me: state.me,};
 };
 
 const RoomContainer = withRoomContext(connect(
